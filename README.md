@@ -1,2 +1,3 @@
 # HDXLUIKitSupport
-Miscellaneous UIKit-specific utilities and conveniences.
+
+A description of this package.
