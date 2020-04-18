@@ -20,6 +20,7 @@ public extension UIStoryboardSegue {
     file: StaticString = #file,
     line: UInt = #line,
     using configuration: (Destination) throws -> Void) rethrows {
+    self.destination.recursivelyLoadViewsIfNeeded()
     guard let expectedDestination = self.destination as? Destination else {
       fatalError("For segue \(String(reflecting: self)), we expected \(String(reflecting: kind)) for destination, but *encountered* destination-VC \(String(reflecting: self.destination)) in `\(function)` @ \(line) in \(file).")
     }
@@ -58,6 +59,7 @@ public extension UIStoryboardSegue {
     file: StaticString = #file,
     line: UInt = #line,
     using configuration: (Destination,Navigation) throws -> Void) rethrows {
+    self.destination.recursivelyLoadViewsIfNeeded()
     guard let expectedNavigation = self.destination as? Navigation else {
       fatalError("For segue \(String(reflecting: self)), we expected \(String(reflecting: navigation)) for navigation-VC type, but *encountered* destination-VC \(String(reflecting: self.destination)) in `\(function)` @ \(line) in \(file).")
     }
